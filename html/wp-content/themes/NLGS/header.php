@@ -30,18 +30,16 @@
 </head>
 
 <body <?php body_class(); ?>>
-
+<p/>
 	<div class="row">
 		
 		<div class="large-3 columns">
 			
 			<div class="row">
-				<img src="wp-content/themes/NLGS/img/nlglogo_big.png" />
+				<a href="/"><img src="/wp-content/themes/NLGS/img/nlglogo_big.png" /></a>
 			</div>
-			<div class="row hide-for-small" style="color:#ffffff; letter-spacing:1px" >
-				<strong>National Lawn & Garden Show<br /> 
-				<em>Not your typical tradeshow since 1995</em>
-				</strong>
+			<div style="color: #fff; letter-spacing:1px; font-size:14px;font-family: Helvetica, Arial, FreeSans, sans-serif" class="row hide-for-small" >
+				<strong>National Lawn &amp; Garden Show<br/>Not your typical tradeshow since 1995</strong>
 			</div>
 
 		</div>
@@ -50,40 +48,44 @@
 			
 			<div class="row hide-for-small" style="color:#ffffff;  text-align:center; margin-top:10px;">
 		 	  <span style="font-size:200%;">
-		 	  	<strong>National Lawn & Garden Show</strong>
-		 	  </span><p>
-			  <span style="font-size:110%;">
-			  	<strong>
-			  		20th Annual NLGS • Crowne Plaza • Denver International Airport
-			  	</strong>
-			  </span><br />
-			  <em>Tuesday - Thursday, June 10th - 12th, 2014</em></p>
+		 	  	<strong>National Lawn &amp; Garden Show</strong>
+		 	  </span>
+				<?php
+					$front_page_header_event_Details = get_post(237);
+			  		echo $front_page_header_event_Details->post_content;
+			    	show_edit_link(237);
+			  	?>
 			</div>
-<!--
-			<div class="row hide-for-small" style="font-weight: bold; font-family:Arial; font-size:12px; color:#FFFFFF;">
-				Join Our Mailing List
-				<form name="ccoptin" action="http://visitor.r20.constantcontact.com/d.jsp" target="_blank" method="post" style="margin-bottom:2;">
-				<input type="hidden" name="llr" value="dtcdaziab">
-				<input type="hidden" name="m" value="1108940524131">
-				<input type="hidden" name="p" value="oi">
-				 <input type="text" name="ea" size="20" value="" style="font-size:10pt; border:1px solid #999999;">
-				<input type="submit" name="go" value="Go" class="submit" style="font-family:Verdana,Geneva,Arial,Helvetica,sans-serif; font-size:10pt;">
+
+			<div class="row  hide-for-small" >
+				<form id="email_subscribe" class="custom" action="http://visitor.r20.constantcontact.com/d.jsp" target="_blank" method="post">
+				<div class="row collapse">
+					<div class="large-7 columns" >
+						<input type="hidden" name="llr" value="dtcdaziab" />
+						<input type="hidden" name="m" value="1108940524131" />
+						<input type="hidden" name="p" value="oi" />
+						<input style="background-color: #fff; border: 2px solid #999" type="text" name="ea" placeholder="you@youremail.com" />
+					</div>
+					<div class="large-5 columns">
+						<a href="javascript:$('#email_subscribe').submit()" class="radius button postfix" style="color: #fff; background: #000; border: 2px solid #999">Join Our Mailing List!<i class="foundicon-mail" ></i></a>
+					</div>
+				</div>
 				</form>
-				<img src="https://imgssl.constantcontact.com/ui/images1/safe_subscribe_logo.gif" border="0" width="168" height="14" alt=""/>
+				<!-- <img src="https://imgssl.constantcontact.com/ui/images1/safe_subscribe_logo.gif" border="0" width="168" height="14" alt=""/> -->
 			</div>
--->
 		
 		</div>
 
 		<div class="large-2 large-offset-1 columns">
-			<div class="row hide-for-small">
-			 <img src="wp-content/themes/NLGS/img/expanded_pet_products.png" />
+			<div class="row hide-for-small" style="color: #fff; text-align:center;">
+			 <img src="/wp-content/themes/NLGS/img/expanded_pet_products.png" />
+			 <em>Expanded Pet Products Division.</em>
 			</div>
 		</div>
 	</div><p/>
 
 	<div class="row">
-		<div class="large-12 columns">
+		<div class="large-10 large-centered columns">
 			<nav class="top-bar"> 
 				<ul class="title-area">
 					<li class="name"><h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">Home</a></h1></li>
@@ -107,6 +109,3 @@
 		</div>
 	</header>
 	<?php endif; ?>
-
-<!-- Begin Page -->
-<div class="row" style="background-color: #fff">

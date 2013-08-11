@@ -78,6 +78,10 @@ function foundation_assets() {
 		// Load Stylesheets
 		wp_enqueue_style( 'normalize', get_template_directory_uri().'/css/normalize.css' );
 		wp_enqueue_style( 'foundation', get_template_directory_uri().'/css/foundation.min.css' );
+		wp_enqueue_style( 'nlgs-custom', get_template_directory_uri().'/css/nlgs-custom.css' );
+		wp_enqueue_style( 'general_foundicons', get_template_directory_uri().'/css/stylesheets/general_foundicons.css' );
+		wp_enqueue_style( 'general_foundicons_ie7', get_template_directory_uri().'/css/stylesheets/general_foundicons_ie7.css' );
+		wp_enqueue_style( 'webicons', get_template_directory_uri().'/css/webicons.css' );
 		wp_enqueue_style( 'app', get_stylesheet_uri(), array('foundation') );
 
 		// Load Google Fonts API
@@ -437,6 +441,7 @@ function foundation_title( $title, $sep ) {
 
 add_filter( 'wp_title', 'foundation_title', 10, 2 );
 
+
 /**
  * Retrieve Shortcodes
  * @see: http://fwp.drewsymo.com/shortcodes/
@@ -447,5 +452,25 @@ $foundation_shortcodes = trailingslashit( get_template_directory() ) . 'inc/shor
 if (file_exists($foundation_shortcodes)) {
 	require( $foundation_shortcodes );
 }
+
+/**
+* NLGS Custom
+*/
+
+ function user_can_edit_content() {
+ 	return (is_admin() || is_admin_bar_showing());
+ }
+
+ function show_edit_link($page_id = null) {
+ 	if( user_can_edit_content() ) {
+ 		if($page_id == null){
+			$page_id = get_the_ID();
+		}
+		echo '<a href="/wp-admin/post.php?post='. 
+		$page_id .'&action=edit">Edit <i class="foundicon-edit"></i></a>';
+	} 
+ }
+
+
 
 ?>
